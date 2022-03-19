@@ -73,7 +73,7 @@ ${oldPRBody}`);
 
   it('should replace issue info', () => {
     const oldPRBodyInformation = 'old PR description body';
-    const oldPRBody = `${HIDDEN_MARKER_START}Here is some old issue information${HIDDEN_MARKER_END}${oldPRBodyInformation}`;
+    const oldPRBody = `${WARNING_MESSAGE_ABOUT_HIDDEN_MARKERS}${HIDDEN_MARKER_START}Here is some old issue information${HIDDEN_MARKER_END}${oldPRBodyInformation}`;
     const issueInfo = 'new info about jira task';
 
     const description = getPRDescription(oldPRBody, issueInfo);

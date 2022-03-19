@@ -56,8 +56,9 @@ const escapeRegexp = (str: string): string => {
 export const getPRDescription = (oldBody: string, details: string): string => {
   const hiddenMarkerStartRg = escapeRegexp(HIDDEN_MARKER_START);
   const hiddenMarkerEndRg = escapeRegexp(HIDDEN_MARKER_END);
+  const warningRg = escapeRegexp(WARNING_MESSAGE_ABOUT_HIDDEN_MARKERS);
 
-  const rg = new RegExp(`${hiddenMarkerStartRg}([\\s\\S]+)${hiddenMarkerEndRg}`, 'igm');
+  const rg = new RegExp(`${warningRg}${hiddenMarkerStartRg}([\\s\\S]+)${hiddenMarkerEndRg}`, 'igm');
   const bodyWithoutJiraDetails = (oldBody ?? '').replace(rg, '');
 
   return `${WARNING_MESSAGE_ABOUT_HIDDEN_MARKERS}
